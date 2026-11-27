@@ -1,4 +1,4 @@
-const CACHE='swim-english-v3-20261127';
+const CACHE='swim-english-v31-20261127';
 const HOME=new URL('index.html',self.registration.scope).href;
 self.addEventListener('install',event=>{event.waitUntil((async()=>{const c=await caches.open(CACHE);await c.add(new Request(HOME,{cache:'reload'}));await self.skipWaiting()})())});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{for(const key of await caches.keys()){if(key!==CACHE&&key.startsWith('swim-'))await caches.delete(key)}await self.clients.claim()})())});
